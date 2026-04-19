@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apilox Design System — UI/UX Developer Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+<link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- TOAST -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- ════════════════════════════════════
+     TOP NAV
+════════════════════════════════════ -->
+<nav class="top-nav">
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="tn-logo">
+    <img src="/images/apilox.png" alt="Apilox" class="tn-logo-img">
+    <div class="tn-title"><span>Design System</span></div>
+    <span class="tn-tag">v1.0</span>
+  </div>
+  <div class="tn-spacer"></div>
+  <span class="tn-version">apilox-ds@1.0.0</span>
+  <div class="tn-links">
+    <button class="tn-link active" data-page="components">Components</button>
+    <button class="tn-link" data-page="principles">Principles</button>
+    <button class="tn-link" data-page="changelog">Changelog</button>
+  </div>
+  <a class="tn-github" href="#">
+    <i class="ri-github-line"></i> Source
+  </a>
+</nav>
+
+<!-- SIDEBAR OVERLAY -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- ════════════════════════════════════
+     PAGE: COMPONENTS (default)
+════════════════════════════════════ -->
+<div id="page-components" class="page active">
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sb-section">
+      <span class="sb-heading">Introduction</span>
+      <a class="sb-link active" data-target="hero-section" onclick="scrollToSection('hero-section')"><i class="ri-home-4-line"></i> Overview</a>
+      <a class="sb-link" data-target="principles-section" onclick="scrollToSection('principles-section')"><i class="ri-heart-line"></i> Core Principles</a>
+    </div>
+
+    <div class="sb-divider"></div>
+
+    <div class="sb-section">
+      <span class="sb-heading">Foundation</span>
+      <a class="sb-link" data-target="colors-section" onclick="scrollToSection('colors-section')"><i class="ri-palette-line"></i> Colors</a>
+      <a class="sb-link" data-target="typography-section" onclick="scrollToSection('typography-section')"><i class="ri-text"></i> Typography</a>
+      <a class="sb-link" data-target="spacing-section" onclick="scrollToSection('spacing-section')"><i class="ri-space"></i> Spacing & Radius</a>
+      <a class="sb-link" data-target="shadows-section" onclick="scrollToSection('shadows-section')"><i class="ri-contrast-drop-line"></i> Shadows</a>
+      <a class="sb-link" data-target="icons-section" onclick="scrollToSection('icons-section')"><i class="ri-remixicon-line"></i> Icons</a>
+    </div>
+
+    <div class="sb-divider"></div>
+
+    <div class="sb-section">
+      <span class="sb-heading">Components</span>
+      <a class="sb-link" data-target="buttons-section" onclick="scrollToSection('buttons-section')"><i class="ri-checkbox-blank-circle-line"></i> Buttons</a>
+      <a class="sb-link" data-target="chips-section" onclick="scrollToSection('chips-section')"><i class="ri-price-tag-3-line"></i> Chips & Badges</a>
+      <a class="sb-link" data-target="forms-section" onclick="scrollToSection('forms-section')"><i class="ri-input-method-line"></i> Form Elements</a>
+      <a class="sb-link" data-target="cards-section" onclick="scrollToSection('cards-section')"><i class="ri-layout-cards-line"></i> Cards</a>
+      <a class="sb-link" data-target="nav-section" onclick="scrollToSection('nav-section')"><i class="ri-navigation-line"></i> Navigation</a>
+    </div>
+
+    <div class="sb-divider"></div>
+
+    <div class="sb-section">
+      <span class="sb-heading">Guidelines</span>
+      <a class="sb-link" data-target="motion-section" onclick="scrollToSection('motion-section')"><i class="ri-magic-line"></i> Motion & Transitions</a>
+      <a class="sb-link" data-target="dodonts-section" onclick="scrollToSection('dodonts-section')"><i class="ri-checkbox-circle-line"></i> Do's & Don'ts</a>
+      <a class="sb-link" data-target="code-section" onclick="scrollToSection('code-section')"><i class="ri-code-s-slash-line"></i> CSS Variables</a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- ══════════════════════════
+         HERO
+    ══════════════════════════ -->
+    <section id="hero-section" class="ds-hero">
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+      <div class="hero-inner">
+        <div class="hero-eyebrow"><span></span> Apilox Design System — Internal Developer Guide</div>
+        <h1 class="hero-heading">Build every Apilox<br>product <em>the same way.</em></h1>
+        <p class="hero-sub">This is the single source of truth for every UI decision across Apilox's SaaS ecosystem. Colors, fonts, components, spacing, motion — all defined, all consistent, all yours.</p>
+        <div class="hero-pills">
+          <div class="hero-pill"><i class="ri-palette-line"></i> Brand Colors</div>
+          <div class="hero-pill"><i class="ri-text"></i> Typography System</div>
+          <div class="hero-pill"><i class="ri-layout-3-line"></i> UI Components</div>
+          <div class="hero-pill"><i class="ri-magic-line"></i> Motion Rules</div>
+          <div class="hero-pill"><i class="ri-code-s-slash-line"></i> CSS Variables</div>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-val">5<span>+</span></div>
+            <div class="hero-stat-label">Font Styles Documented</div>
+          </div>
+          <div>
+            <div class="hero-stat-val">12<span>+</span></div>
+            <div class="hero-stat-label">Brand Colors Defined</div>
+          </div>
+          <div>
+            <div class="hero-stat-val">20<span>+</span></div>
+            <div class="hero-stat-label">UI Components</div>
+          </div>
+          <div>
+            <div class="hero-stat-val">1</div>
+            <div class="hero-stat-label">Source of Truth</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         PRINCIPLES
+    ══════════════════════════ -->
+    <section id="principles-section" class="ds-section">
+      <div class="section-label"><i class="ri-heart-line"></i> Core Principles</div>
+      <h2 class="section-title">What Apilox UI stands for</h2>
+      <p class="section-sub">Every design decision in this system is anchored to four non-negotiable principles. When in doubt, come back to these.</p>
+      <div class="four-col">
+        <div style="background:var(--white);border:1px solid var(--gray-100);border-radius:var(--r-lg);padding:28px 24px;">
+          <div style="width:44px;height:44px;border-radius:var(--r-sm);background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.2rem;color:var(--green-dark);"><i class="ri-eye-line"></i></div>
+          <h4 style="font-size:0.95rem;margin-bottom:8px;">Clarity First</h4>
+          <p style="font-size:0.8rem;color:var(--gray-500);line-height:1.6;">Every element must serve a clear purpose. No decoration for its own sake. Users should never guess what something does.</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--gray-100);border-radius:var(--r-lg);padding:28px 24px;">
+          <div style="width:44px;height:44px;border-radius:var(--r-sm);background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.2rem;color:var(--green-dark);"><i class="ri-link-m"></i></div>
+          <h4 style="font-size:0.95rem;margin-bottom:8px;">Consistency Always</h4>
+          <p style="font-size:0.8rem;color:var(--gray-500);line-height:1.6;">The same action should always look the same, across every Apilox product. Users who learn one platform should feel at home in all.</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--gray-100);border-radius:var(--r-lg);padding:28px 24px;">
+          <div style="width:44px;height:44px;border-radius:var(--r-sm);background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.2rem;color:var(--green-dark);"><i class="ri-seedling-line"></i></div>
+          <h4 style="font-size:0.95rem;margin-bottom:8px;">Brand Integrity</h4>
+          <p style="font-size:0.8rem;color:var(--gray-500);line-height:1.6;">Green is Apilox's identity. It signals trust, health, and progress. Every product should feel unmistakably Apilox without being told.</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--gray-100);border-radius:var(--r-lg);padding:28px 24px;">
+          <div style="width:44px;height:44px;border-radius:var(--r-sm);background:var(--green-soft);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.2rem;color:var(--green-dark);"><i class="ri-speed-up-line"></i></div>
+          <h4 style="font-size:0.95rem;margin-bottom:8px;">Purposeful Motion</h4>
+          <p style="font-size:0.8rem;color:var(--gray-500);line-height:1.6;">Animations inform and delight — never distract. Every transition should make the product feel alive, not laggy or flashy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         COLORS
+    ══════════════════════════ -->
+    <section id="colors-section" class="ds-section" style="background:var(--off-white);">
+      <div class="section-label"><i class="ri-palette-line"></i> Colors</div>
+      <h2 class="section-title">Brand Color Palette</h2>
+      <p class="section-sub">Click any swatch to copy its value. Always use CSS variables — never hardcode hex values in your components.</p>
+
+      <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-500);margin-bottom:14px;font-weight:700;">Primary — Green Scale</h3>
+      <div class="color-grid" style="margin-bottom:28px;">
+        <div class="color-swatch" onclick="copyColor('#1FBC51','--green',this)">
+          <div class="swatch-block" style="background:#1FBC51;"><div class="swatch-check"><i class="ri-check-line"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Green</div><div class="swatch-var">--green</div><div class="swatch-hex">#1FBC51</div></div>
+          <div class="usage-pills"><span class="usage-pill">Buttons</span><span class="usage-pill">CTA</span><span class="usage-pill">Active</span></div>
+        </div>
+        <div class="color-swatch" onclick="copyColor('#17a044','--green-dark',this)">
+          <div class="swatch-block" style="background:#17a044;"><div class="swatch-check"><i class="ri-check-line"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Green Dark</div><div class="swatch-var">--green-dark</div><div class="swatch-hex">#17a044</div></div>
+          <div class="usage-pills"><span class="usage-pill">Hover</span><span class="usage-pill">Text</span></div>
+        </div>
+        <div class="color-swatch" onclick="copyColor('#0d8a38','--green-deep',this)">
+          <div class="swatch-block" style="background:#0d8a38;"><div class="swatch-check"><i class="ri-check-line"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Green Deep</div><div class="swatch-var">--green-deep</div><div class="swatch-hex">#0d8a38</div></div>
+          <div class="usage-pills"><span class="usage-pill">Active state</span></div>
+        </div>
+        <div class="color-swatch" onclick="copyColor('#E9F8EF','--green-light',this)">
+          <div class="swatch-block" style="background:#E9F8EF;border-bottom:1px solid var(--gray-100);"><div class="swatch-check" style="background:rgba(0,0,0,0.1);"><i class="ri-check-line" style="color:var(--green-dark);"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Green Light</div><div class="swatch-var">--green-light</div><div class="swatch-hex">#E9F8EF</div></div>
+          <div class="usage-pills"><span class="usage-pill">Backgrounds</span><span class="usage-pill">Hover bg</span></div>
+        </div>
+        <div class="color-swatch" onclick="copyColor('rgba(31,188,81,0.08)','--green-soft',this)">
+          <div class="swatch-block" style="background:rgba(31,188,81,0.08);border-bottom:1px solid var(--gray-100);"><div class="swatch-check" style="background:rgba(0,0,0,0.08);"><i class="ri-check-line" style="color:var(--green-dark);"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Green Soft</div><div class="swatch-var">--green-soft</div><div class="swatch-hex">rgba(31,188,81,.08)</div></div>
+          <div class="usage-pills"><span class="usage-pill">Chip bg</span><span class="usage-pill">Icon bg</span></div>
+        </div>
+        <div class="color-swatch" onclick="copyColor('rgba(31,188,81,0.22)','--green-border',this)">
+          <div class="swatch-block" style="background:rgba(31,188,81,0.22);border-bottom:1px solid var(--gray-100);"><div class="swatch-check" style="background:rgba(0,0,0,0.08);"><i class="ri-check-line" style="color:var(--green-dark);"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Green Border</div><div class="swatch-var">--green-border</div><div class="swatch-hex">rgba(31,188,81,.22)</div></div>
+          <div class="usage-pills"><span class="usage-pill">Borders</span><span class="usage-pill">Dividers</span></div>
+        </div>
+      </div>
+
+      <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-500);margin-bottom:14px;font-weight:700;">Neutrals</h3>
+      <div class="color-grid" style="margin-bottom:28px;">
+        <div class="color-swatch" onclick="copyColor('#0d1f14','--ink',this)">
+          <div class="swatch-block" style="background:#0d1f14;"><div class="swatch-check"><i class="ri-check-line"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Ink</div><div class="swatch-var">--ink</div><div class="swatch-hex">#0d1f14</div></div>
+          <div class="usage-pills"><span class="usage-pill">Headings</span><span class="usage-pill">Dark bg</span></div>
+        </div>
+        <div class="color-swatch" onclick="copyColor('#354a3c','--gray-700',this)">
+          <div class="swatch-block" style="background:#354a3c;"><div class="swatch-check"><i class="ri-check-line"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Gray 700</div><div class="swatch-var">--gray-700</div><div class="swatch-hex">#354a3c</div></div>
+          <div class="usage-pills"><span class="usage-pill">Body text</span></div>
+        </div>
+        <div class="color-swatch" onclick="copyColor('#5f7c69','--gray-500',this)">
+          <div class="swatch-block" style="background:#5f7c69;"><div class="swatch-check"><i class="ri-check-line"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Gray 500</div><div class="swatch-var">--gray-500</div><div class="swatch-hex">#5f7c69</div></div>
+          <div class="usage-pills"><span class="usage-pill">Subtext</span><span class="usage-pill">Labels</span></div>
+        </div>
+        <div class="color-swatch" onclick="copyColor('#aecfba','--gray-300',this)">
+          <div class="swatch-block" style="background:#aecfba;"><div class="swatch-check"><i class="ri-check-line"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Gray 300</div><div class="swatch-var">--gray-300</div><div class="swatch-hex">#aecfba</div></div>
+          <div class="usage-pills"><span class="usage-pill">Placeholders</span><span class="usage-pill">Borders</span></div>
+        </div>
+        <div class="color-swatch" onclick="copyColor('#e8f5ed','--gray-100',this)">
+          <div class="swatch-block" style="background:#e8f5ed;border-bottom:1px solid var(--gray-200);"><div class="swatch-check" style="background:rgba(0,0,0,0.08);"><i class="ri-check-line" style="color:var(--ink);"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Gray 100</div><div class="swatch-var">--gray-100</div><div class="swatch-hex">#e8f5ed</div></div>
+          <div class="usage-pills"><span class="usage-pill">Dividers</span></div>
+        </div>
+        <div class="color-swatch" onclick="copyColor('#f7fdf9','--off-white',this)">
+          <div class="swatch-block" style="background:#f7fdf9;border-bottom:1px solid var(--gray-200);"><div class="swatch-check" style="background:rgba(0,0,0,0.08);"><i class="ri-check-line" style="color:var(--ink);"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Off White</div><div class="swatch-var">--off-white</div><div class="swatch-hex">#f7fdf9</div></div>
+          <div class="usage-pills"><span class="usage-pill">Page bg</span><span class="usage-pill">Sidebar</span></div>
+        </div>
+      </div>
+
+      <h3 style="font-size:0.85rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-500);margin-bottom:14px;font-weight:700;">Semantic Colors</h3>
+      <div class="color-grid">
+        <div class="color-swatch" onclick="copyColor('#E53E3E','--red',this)">
+          <div class="swatch-block" style="background:#E53E3E;"><div class="swatch-check"><i class="ri-check-line"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Red / Error</div><div class="swatch-var">--red</div><div class="swatch-hex">#E53E3E</div></div>
+          <div class="usage-pills"><span class="usage-pill">Errors</span><span class="usage-pill">Danger</span><span class="usage-pill">Delete</span></div>
+        </div>
+        <div class="color-swatch" onclick="copyColor('#D69E2E','--amber',this)">
+          <div class="swatch-block" style="background:#D69E2E;"><div class="swatch-check"><i class="ri-check-line"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Amber / Warning</div><div class="swatch-var">--amber</div><div class="swatch-hex">#D69E2E</div></div>
+          <div class="usage-pills"><span class="usage-pill">Warnings</span><span class="usage-pill">Pending</span></div>
+        </div>
+        <div class="color-swatch" onclick="copyColor('#3182CE','--blue',this)">
+          <div class="swatch-block" style="background:#3182CE;"><div class="swatch-check"><i class="ri-check-line"></i></div></div>
+          <div class="swatch-info"><div class="swatch-name">Blue / Info</div><div class="swatch-var">--blue</div><div class="swatch-hex">#3182CE</div></div>
+          <div class="usage-pills"><span class="usage-pill">Info</span><span class="usage-pill">Links</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         TYPOGRAPHY
+    ══════════════════════════ -->
+    <section id="typography-section" class="ds-section">
+      <div class="section-label"><i class="ri-text"></i> Typography</div>
+      <h2 class="section-title">Type System</h2>
+      <p class="section-sub">Three typefaces, each with a specific role. Never mix them up or use substitutes. Import them from Google Fonts in every Apilox product.</p>
+
+      <div class="type-specimen" data-font="Montserrat — var(--font-heading)">
+        <div class="type-demo-heading">Apilox Health Platform</div>
+        <div style="font-family:var(--font-heading);font-size:1rem;font-weight:500;color:var(--gray-500);margin-bottom:4px;">The Montserrat font is used for ALL headings, button labels, navigation items, and any text that needs authority.</div>
+        <div class="type-meta">
+          <div class="type-meta-item"><strong>Font Family</strong>Montserrat</div>
+          <div class="type-meta-item"><strong>Variable</strong><code style="font-family:var(--font-mono);background:var(--green-soft);padding:2px 6px;border-radius:4px;font-size:0.78rem;">--font-heading</code></div>
+          <div class="type-meta-item"><strong>Weights Used</strong>400, 500, 600, 700, 800, 900</div>
+          <div class="type-meta-item"><strong>Role</strong>Headings, Buttons, Nav, Labels</div>
+        </div>
+      </div>
+
+      <div class="type-specimen" data-font="DM Serif Display — var(--font-serif)">
+        <div class="type-demo-serif">Tanzania's most trusted pharmacy network.</div>
+        <div style="font-family:var(--font-serif);font-style:italic;font-size:1rem;color:var(--gray-500);margin-bottom:4px;">DM Serif Display italic is used exclusively for large hero headings and editorial accents. Always italic.</div>
+        <div class="type-meta">
+          <div class="type-meta-item"><strong>Font Family</strong>DM Serif Display</div>
+          <div class="type-meta-item"><strong>Variable</strong><code style="font-family:var(--font-mono);background:var(--green-soft);padding:2px 6px;border-radius:4px;font-size:0.78rem;">--font-serif</code></div>
+          <div class="type-meta-item"><strong>Style</strong>Italic only</div>
+          <div class="type-meta-item"><strong>Role</strong>Hero headings, editorial quotes</div>
+        </div>
+      </div>
+
+      <div class="type-specimen" data-font="Poppins — var(--font-body)">
+        <div class="type-demo-body">Apilox connects you with trusted, TMDA-approved pharmacies across Tanzania. Order genuine medicines, consult doctors online, and get fast delivery anytime, anywhere. Our platform is built for precision, trust, and speed.</div>
+        <div class="type-meta">
+          <div class="type-meta-item"><strong>Font Family</strong>Poppins</div>
+          <div class="type-meta-item"><strong>Variable</strong><code style="font-family:var(--font-mono);background:var(--green-soft);padding:2px 6px;border-radius:4px;font-size:0.78rem;">--font-body</code></div>
+          <div class="type-meta-item"><strong>Weights Used</strong>300, 400, 500, 600</div>
+          <div class="type-meta-item"><strong>Role</strong>Body copy, descriptions, hints</div>
+        </div>
+      </div>
+
+      <div class="type-specimen" data-font="JetBrains Mono — var(--font-mono)">
+        <div class="type-demo-mono">--green: #1FBC51; &nbsp;&nbsp; font-family: var(--font-heading);</div>
+        <div style="font-family:var(--font-body);font-size:0.85rem;color:var(--gray-500);margin-top:10px;">JetBrains Mono is used for all code snippets, version numbers, variable names, and technical labels.</div>
+        <div class="type-meta">
+          <div class="type-meta-item"><strong>Font Family</strong>JetBrains Mono</div>
+          <div class="type-meta-item"><strong>Variable</strong><code style="font-family:var(--font-mono);background:var(--green-soft);padding:2px 6px;border-radius:4px;font-size:0.78rem;">--font-mono</code></div>
+          <div class="type-meta-item"><strong>Role</strong>Code, variables, tech labels</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin-bottom:16px;margin-top:32px;">Type Scale</h3>
+      <div class="ds-card">
+        <div class="table-scroll-wrap">
+        <table class="scale-table">
+          <thead><tr><th>Name</th><th>Size</th><th>Weight</th><th>Preview</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code>display</code></td><td>clamp(2.4rem, 5vw, 4rem)</td><td>700 italic (serif)</td><td><span class="preview-text" style="font-family:var(--font-serif);font-style:italic;font-size:1.3rem;">Hero Heading</span></td><td>Hero sections only</td></tr>
+            <tr><td><code>h1</code></td><td>2rem – 2.4rem</td><td>800</td><td><span class="preview-text" style="font-size:1.1rem;">Page Title</span></td><td>Page headings</td></tr>
+            <tr><td><code>h2</code></td><td>1.4rem – 1.8rem</td><td>700</td><td><span class="preview-text" style="font-size:1rem;">Section Heading</span></td><td>Section titles</td></tr>
+            <tr><td><code>h3</code></td><td>1rem – 1.2rem</td><td>700</td><td><span class="preview-text" style="font-size:0.95rem;">Card Title</span></td><td>Cards, sub-sections</td></tr>
+            <tr><td><code>body-lg</code></td><td>1rem</td><td>400</td><td>Regular body copy text at full size</td><td>Main content</td></tr>
+            <tr><td><code>body</code></td><td>0.88rem</td><td>400</td><td>Standard paragraph and description text</td><td>Cards, descriptions</td></tr>
+            <tr><td><code>small</code></td><td>0.78rem</td><td>400–500</td><td>Hint text and supporting copy here</td><td>Hints, captions</td></tr>
+            <tr><td><code>label</code></td><td>0.65rem–0.72rem</td><td>700</td><td><span style="text-transform:uppercase;letter-spacing:0.12em;font-size:0.65rem;font-weight:700;">SECTION LABEL</span></td><td>Section labels, chips</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <div class="code-block" style="margin-top:24px;">
+        <div class="code-header"><span class="code-lang">CSS Import</span><button class="code-copy" onclick="copyCode(this,'import-code')"><i class="ri-file-copy-line"></i> Copy</button></div>
+        <div class="code-body"><pre id="import-code"><span class="c-comment">/* Always include this import at the top of your main CSS file */</span>
+<span class="c-fn">@import</span> <span class="c-str">url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap')</span>;
+
+<span class="c-comment">/* Apply in :root — do not use raw font names in components */</span>
+<span class="c-key">:root</span> {
+  <span class="c-prop">--font-heading</span>: <span class="c-str">'Montserrat'</span>, sans-serif;
+  <span class="c-prop">--font-body</span>:    <span class="c-str">'Poppins'</span>, sans-serif;
+  <span class="c-prop">--font-serif</span>:   <span class="c-str">'DM Serif Display'</span>, Georgia, serif;
+  <span class="c-prop">--font-mono</span>:    <span class="c-str">'JetBrains Mono'</span>, monospace;
+}</pre></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         BUTTONS
+    ══════════════════════════ -->
+    <section id="buttons-section" class="ds-section" style="background:var(--off-white);">
+      <div class="section-label"><i class="ri-cursor-line"></i> Buttons</div>
+      <h2 class="section-title">Button System</h2>
+      <p class="section-sub">Five button variants, three sizes. All use Montserrat font-weight 700. All use border-radius: var(--r-xxl) — this pill shape is a core Apilox signature.</p>
+
+      <div class="btn-showcase" style="margin-bottom:20px;">
+        <div class="btn-row">
+          <span class="btn-row-label">Primary</span>
+          <button class="btn-primary"><i class="ri-arrow-right-s-line"></i> Get Started</button>
+          <button class="btn-primary"><i class="ri-download-line"></i> Download App</button>
+          <button class="btn-primary btn-icon"><i class="ri-add-line"></i></button>
+        </div>
+        <div class="btn-row">
+          <span class="btn-row-label">Dark</span>
+          <button class="btn-dark"><i class="ri-login-box-line"></i> Sign In</button>
+          <button class="btn-dark">Learn More</button>
+          <button class="btn-dark btn-icon"><i class="ri-settings-3-line"></i></button>
+        </div>
+        <div class="btn-row">
+          <span class="btn-row-label">Outline</span>
+          <button class="btn-outline"><i class="ri-eye-line"></i> Preview</button>
+          <button class="btn-outline">View Pricing</button>
+        </div>
+        <div class="btn-row">
+          <span class="btn-row-label">Ghost</span>
+          <button class="btn-ghost"><i class="ri-arrow-right-line"></i> Read More</button>
+          <button class="btn-ghost">Cancel</button>
+        </div>
+        <div class="btn-row">
+          <span class="btn-row-label">Danger</span>
+          <button class="btn-danger"><i class="ri-delete-bin-line"></i> Delete</button>
+          <button class="btn-danger">Remove Access</button>
+        </div>
+      </div>
+
+      <div class="btn-showcase" style="margin-bottom:24px;">
+        <div class="btn-row">
+          <span class="btn-row-label">Sizes</span>
+          <button class="btn-primary btn-sm">Small</button>
+          <button class="btn-primary">Default</button>
+          <button class="btn-primary btn-lg">Large</button>
+        </div>
+        <div class="btn-row">
+          <span class="btn-row-label">States</span>
+          <button class="btn-primary">Normal</button>
+          <button class="btn-primary" style="opacity:0.45;cursor:not-allowed;" disabled>Disabled</button>
+          <button class="btn-primary" style="background:var(--green-dark);box-shadow:var(--shadow-green);transform:translateY(-2px);">Hover State</button>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">CSS</span><button class="code-copy" onclick="copyCode(this,'btn-code')"><i class="ri-file-copy-line"></i> Copy</button></div>
+        <div class="code-body"><pre id="btn-code"><span class="c-comment">/* PRIMARY BUTTON — main call-to-action */</span>
+<span class="c-key">.btn-primary</span> {
+  <span class="c-prop">display</span>: inline-flex; <span class="c-prop">align-items</span>: center; <span class="c-prop">gap</span>: 8px;
+  <span class="c-prop">background</span>: <span class="c-fn">var</span>(--green); <span class="c-prop">color</span>: <span class="c-fn">var</span>(--white);
+  <span class="c-prop">font-family</span>: <span class="c-fn">var</span>(--font-heading); <span class="c-prop">font-weight</span>: <span class="c-val">700</span>;
+  <span class="c-prop">font-size</span>: <span class="c-val">0.85rem</span>; <span class="c-prop">letter-spacing</span>: <span class="c-val">0.02em</span>;
+  <span class="c-prop">padding</span>: <span class="c-val">12px 26px</span>; <span class="c-prop">border-radius</span>: <span class="c-fn">var</span>(--r-xxl); <span class="c-comment">/* pill shape — required */</span>
+  <span class="c-prop">border</span>: none; <span class="c-prop">cursor</span>: pointer;
+  <span class="c-prop">transition</span>: all <span class="c-val">0.25s</span> ease;
+}
+<span class="c-key">.btn-primary:hover</span> {
+  <span class="c-prop">background</span>: <span class="c-fn">var</span>(--green-dark);
+  <span class="c-prop">box-shadow</span>: <span class="c-fn">var</span>(--shadow-green);
+  <span class="c-prop">transform</span>: <span class="c-fn">translateY</span>(-2px); <span class="c-comment">/* slight lift on hover — always */</span>
+}</pre></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         CHIPS & BADGES
+    ══════════════════════════ -->
+    <section id="chips-section" class="ds-section">
+      <div class="section-label"><i class="ri-price-tag-3-line"></i> Chips & Badges</div>
+      <h2 class="section-title">Labels, Chips & Badges</h2>
+      <p class="section-sub">Chips are informational labels — used for categories, status, and eyebrow text. Badges are compact numerical or status indicators.</p>
+
+      <div class="ds-card" style="padding:32px 36px;margin-bottom:20px;">
+        <h4 style="font-size:0.82rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-500);margin-bottom:16px;">Chips</h4>
+        <div class="chip-grid" style="margin-bottom:28px;">
+          <span class="chip chip-green"><i class="ri-shield-check-line"></i> Verified</span>
+          <span class="chip chip-green">Active</span>
+          <span class="chip chip-ink">Company</span>
+          <span class="chip chip-amber"><i class="ri-time-line"></i> Pending</span>
+          <span class="chip chip-red"><i class="ri-close-circle-line"></i> Inactive</span>
+          <span class="chip chip-blue"><i class="ri-information-line"></i> New Feature</span>
+        </div>
+        <h4 style="font-size:0.82rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-500);margin-bottom:16px;">Badges</h4>
+        <div class="chip-grid">
+          <span class="badge badge-green">12</span>
+          <span class="badge badge-red">3</span>
+          <span class="badge badge-amber">!</span>
+          <span class="badge badge-outline">New</span>
+          <span class="badge badge-green">Online</span>
+          <span style="position:relative;display:inline-block;width:36px;height:36px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:var(--gray-500);">
+            <i class="ri-notification-3-line"></i>
+            <span class="badge badge-red" style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;font-size:0.58rem;">5</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">CSS + HTML</span><button class="code-copy" onclick="copyCode(this,'chip-code')"><i class="ri-file-copy-line"></i> Copy</button></div>
+        <div class="code-body"><pre id="chip-code"><span class="c-comment">/* CHIP — base style */</span>
+<span class="c-key">.chip</span> {
+  <span class="c-prop">display</span>: inline-flex; <span class="c-prop">align-items</span>: center; <span class="c-prop">gap</span>: 6px;
+  <span class="c-prop">padding</span>: <span class="c-val">6px 14px</span>; <span class="c-prop">border-radius</span>: <span class="c-fn">var</span>(--r-xxl);
+  <span class="c-prop">font-family</span>: <span class="c-fn">var</span>(--font-heading); <span class="c-prop">font-size</span>: <span class="c-val">0.72rem</span>;
+  <span class="c-prop">font-weight</span>: <span class="c-val">700</span>; <span class="c-prop">letter-spacing</span>: <span class="c-val">0.08em</span>;
+  <span class="c-prop">text-transform</span>: uppercase;
+}
+<span class="c-key">.chip-green</span> {
+  <span class="c-prop">background</span>: <span class="c-fn">var</span>(--green-soft);
+  <span class="c-prop">border</span>: 1px solid <span class="c-fn">var</span>(--green-border);
+  <span class="c-prop">color</span>: <span class="c-fn">var</span>(--green-dark);
+}
+<span class="c-comment">/* HTML usage */</span>
+<span class="c-fn">&lt;span</span> <span class="c-prop">class</span>=<span class="c-str">"chip chip-green"</span><span class="c-fn">&gt;</span>
+  <span class="c-fn">&lt;i</span> <span class="c-prop">class</span>=<span class="c-str">"ri-shield-check-line"</span><span class="c-fn">&gt;&lt;/i&gt;</span> Verified
+<span class="c-fn">&lt;/span&gt;</span></pre></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         FORMS
+    ══════════════════════════ -->
+    <section id="forms-section" class="ds-section" style="background:var(--off-white);">
+      <div class="section-label"><i class="ri-input-method-line"></i> Form Elements</div>
+      <h2 class="section-title">Form Components</h2>
+      <p class="section-sub">All inputs use 1.5px borders that transition to green on focus, with a subtle green glow ring. Never use default browser focus rings in Apilox products.</p>
+
+      <div class="two-col" style="gap:24px;">
+        <div class="form-demo">
+          <div class="form-group">
+            <label class="form-label">Full Name <span class="req">*</span></label>
+            <div class="input-icon-wrap">
+              <i class="ri-user-line"></i>
+              <input type="text" class="form-input" placeholder="e.g. Amina Rashidi">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address <span class="req">*</span></label>
+            <div class="input-icon-wrap">
+              <i class="ri-mail-line"></i>
+              <input type="email" class="form-input" value="amina@apilox.co.tz">
+            </div>
+            <span class="form-hint">We'll send verification to this address.</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Department</label>
+            <select class="form-select">
+              <option>Operations</option>
+              <option>Finance</option>
+              <option>Technology</option>
+              <option>HR</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Error State</label>
+            <input type="text" class="form-input error" value="invalid-email">
+            <span class="form-error-msg"><i class="ri-error-warning-line"></i> Please enter a valid email address.</span>
+          </div>
+        </div>
+
+        <div class="form-demo">
+          <div class="form-group">
+            <label class="form-label">Toggles</label>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div class="toggle-wrap">
+                <button class="toggle on" onclick="this.classList.toggle('on')"></button>
+                <span class="toggle-label">Email notifications</span>
+              </div>
+              <div class="toggle-wrap">
+                <button class="toggle" onclick="this.classList.toggle('on')"></button>
+                <span class="toggle-label">SMS alerts</span>
+              </div>
+              <div class="toggle-wrap">
+                <button class="toggle on" onclick="this.classList.toggle('on')"></button>
+                <span class="toggle-label">Two-factor auth</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Checkboxes</label>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div class="check-wrap" onclick="this.querySelector('.custom-check').classList.toggle('checked')">
+                <div class="custom-check checked"></div>
+                <span style="font-size:0.85rem;color:var(--gray-700);">I agree to the Terms of Service</span>
+              </div>
+              <div class="check-wrap" onclick="this.querySelector('.custom-check').classList.toggle('checked')">
+                <div class="custom-check"></div>
+                <span style="font-size:0.85rem;color:var(--gray-700);">Subscribe to newsletter</span>
+              </div>
+              <div class="check-wrap" onclick="this.querySelector('.custom-check').classList.toggle('checked')">
+                <div class="custom-check checked"></div>
+                <span style="font-size:0.85rem;color:var(--gray-700);">Remember this device</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block" style="margin-top:24px;">
+        <div class="code-header"><span class="code-lang">CSS — Input Focus State</span><button class="code-copy" onclick="copyCode(this,'input-code')"><i class="ri-file-copy-line"></i> Copy</button></div>
+        <div class="code-body"><pre id="input-code"><span class="c-key">.form-input</span> {
+  <span class="c-prop">padding</span>: <span class="c-val">12px 16px</span>; <span class="c-prop">border-radius</span>: <span class="c-fn">var</span>(--r-md);
+  <span class="c-prop">border</span>: <span class="c-val">1.5px</span> solid <span class="c-fn">var</span>(--gray-200);
+  <span class="c-prop">font-family</span>: <span class="c-fn">var</span>(--font-body); <span class="c-prop">font-size</span>: <span class="c-val">0.88rem</span>;
+  <span class="c-prop">outline</span>: none; <span class="c-prop">transition</span>: all <span class="c-val">0.2s</span> ease;
+}
+<span class="c-key">.form-input:focus</span> {
+  <span class="c-prop">border-color</span>: <span class="c-fn">var</span>(--green);
+  <span class="c-prop">box-shadow</span>: 0 0 0 3px <span class="c-fn">rgba</span>(31,188,81,0.12); <span class="c-comment">/* green glow ring */</span>
+}
+<span class="c-key">.form-input.error</span> {
+  <span class="c-prop">border-color</span>: <span class="c-fn">var</span>(--red);
+  <span class="c-prop">box-shadow</span>: 0 0 0 3px <span class="c-fn">rgba</span>(229,62,62,0.10);
+}</pre></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         ICONS
+    ══════════════════════════ -->
+    <section id="icons-section" class="ds-section">
+      <div class="section-label"><i class="ri-remixicon-line"></i> Icons</div>
+      <h2 class="section-title">Icon Library — Remix Icons</h2>
+      <p class="section-sub">Apilox uses <strong>Remix Icons (remixicon)</strong> exclusively. Do not mix icon libraries. Import via CDN. Never use emoji as icons in the UI.</p>
+
+      <div class="ds-card" style="padding:28px 28px 16px;margin-bottom:20px;">
+        <h4 style="font-size:0.82rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-500);margin-bottom:16px;">Frequently Used Icons</h4>
+        <div class="icon-grid">
+          <div class="icon-item"><i class="ri-home-4-line"></i><span>ri-home-4-line</span></div>
+          <div class="icon-item"><i class="ri-user-line"></i><span>ri-user-line</span></div>
+          <div class="icon-item"><i class="ri-settings-3-line"></i><span>ri-settings-3-line</span></div>
+          <div class="icon-item"><i class="ri-notification-3-line"></i><span>ri-notification-3-line</span></div>
+          <div class="icon-item"><i class="ri-search-line"></i><span>ri-search-line</span></div>
+          <div class="icon-item"><i class="ri-download-line"></i><span>ri-download-line</span></div>
+          <div class="icon-item"><i class="ri-upload-line"></i><span>ri-upload-line</span></div>
+          <div class="icon-item"><i class="ri-eye-line"></i><span>ri-eye-line</span></div>
+          <div class="icon-item"><i class="ri-lock-line"></i><span>ri-lock-line</span></div>
+          <div class="icon-item"><i class="ri-shield-check-line"></i><span>ri-shield-check-line</span></div>
+          <div class="icon-item"><i class="ri-check-line"></i><span>ri-check-line</span></div>
+          <div class="icon-item"><i class="ri-close-line"></i><span>ri-close-line</span></div>
+          <div class="icon-item"><i class="ri-add-line"></i><span>ri-add-line</span></div>
+          <div class="icon-item"><i class="ri-delete-bin-line"></i><span>ri-delete-bin-line</span></div>
+          <div class="icon-item"><i class="ri-edit-line"></i><span>ri-edit-line</span></div>
+          <div class="icon-item"><i class="ri-arrow-right-line"></i><span>ri-arrow-right-line</span></div>
+          <div class="icon-item"><i class="ri-mail-line"></i><span>ri-mail-line</span></div>
+          <div class="icon-item"><i class="ri-phone-line"></i><span>ri-phone-line</span></div>
+          <div class="icon-item"><i class="ri-bar-chart-2-line"></i><span>ri-bar-chart-2-line</span></div>
+          <div class="icon-item"><i class="ri-folder-line"></i><span>ri-folder-line</span></div>
+          <div class="icon-item"><i class="ri-calendar-line"></i><span>ri-calendar-line</span></div>
+          <div class="icon-item"><i class="ri-time-line"></i><span>ri-time-line</span></div>
+          <div class="icon-item"><i class="ri-map-pin-line"></i><span>ri-map-pin-line</span></div>
+          <div class="icon-item"><i class="ri-heart-line"></i><span>ri-heart-line</span></div>
+          <div class="icon-item"><i class="ri-star-line"></i><span>ri-star-line</span></div>
+          <div class="icon-item"><i class="ri-cpu-line"></i><span>ri-cpu-line</span></div>
+          <div class="icon-item"><i class="ri-group-line"></i><span>ri-group-line</span></div>
+          <div class="icon-item"><i class="ri-global-line"></i><span>ri-global-line</span></div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">HTML — CDN Import</span><button class="code-copy" onclick="copyCode(this,'icon-code')"><i class="ri-file-copy-line"></i> Copy</button></div>
+        <div class="code-body"><pre id="icon-code"><span class="c-comment">&lt;!-- Add to &lt;head&gt; of every Apilox product --&gt;</span>
+<span class="c-fn">&lt;link</span> <span class="c-prop">rel</span>=<span class="c-str">"stylesheet"</span>
+      <span class="c-prop">href</span>=<span class="c-str">"https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"</span><span class="c-fn">&gt;</span>
+
+<span class="c-comment">&lt;!-- Usage — always use the -line variant for UI icons --&gt;</span>
+<span class="c-fn">&lt;i</span> <span class="c-prop">class</span>=<span class="c-str">"ri-shield-check-line"</span><span class="c-fn">&gt;&lt;/i&gt;</span>  <span class="c-comment">/* preferred */</span>
+<span class="c-fn">&lt;i</span> <span class="c-prop">class</span>=<span class="c-str">"ri-shield-check-fill"</span><span class="c-fn">&gt;&lt;/i&gt;</span>  <span class="c-comment">/* use fill only for emphasis/active state */</span>
+
+<span class="c-comment">/* Icon sizing rules */</span>
+<span class="c-key">.icon-sm</span>  { <span class="c-prop">font-size</span>: <span class="c-val">0.85rem</span>; }
+<span class="c-key">.icon-md</span>  { <span class="c-prop">font-size</span>: <span class="c-val">1.1rem</span>; }  <span class="c-comment">/* default */</span>
+<span class="c-key">.icon-lg</span>  { <span class="c-prop">font-size</span>: <span class="c-val">1.4rem</span>; }
+<span class="c-key">.icon-xl</span>  { <span class="c-prop">font-size</span>: <span class="c-val">2rem</span>;   }</pre></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         CARDS
+    ══════════════════════════ -->
+    <section id="cards-section" class="ds-section" style="background:var(--off-white);">
+      <div class="section-label"><i class="ri-layout-cards-line"></i> Cards</div>
+      <h2 class="section-title">Card Components</h2>
+      <p class="section-sub">Cards use white backgrounds, 1px gray-100 borders, border-radius: var(--r-lg), and a translateY(-3px) lift on hover. Never use harsh drop shadows by default.</p>
+
+      <h3 style="font-size:0.88rem;color:var(--gray-700);margin-bottom:16px;">Stat Cards</h3>
+      <div class="four-col" style="margin-bottom:32px;">
+        <div class="stat-card-demo">
+          <div class="scd-icon"><i class="ri-user-heart-line"></i></div>
+          <div class="scd-value">12,480</div>
+          <div class="scd-label">Active Patients</div>
+          <div class="scd-trend up"><i class="ri-arrow-up-line"></i> +8.2% this month</div>
+        </div>
+        <div class="stat-card-demo">
+          <div class="scd-icon"><i class="ri-store-2-line"></i></div>
+          <div class="scd-value">342</div>
+          <div class="scd-label">Partner Pharmacies</div>
+          <div class="scd-trend up"><i class="ri-arrow-up-line"></i> +14 new</div>
+        </div>
+        <div class="stat-card-demo">
+          <div class="scd-icon"><i class="ri-refund-2-line"></i></div>
+          <div class="scd-value">TZS 4.2M</div>
+          <div class="scd-label">Monthly Revenue</div>
+          <div class="scd-trend down"><i class="ri-arrow-down-line"></i> -2.1% vs last</div>
+        </div>
+        <div class="stat-card-demo">
+          <div class="scd-icon"><i class="ri-time-line"></i></div>
+          <div class="scd-value">2.4h</div>
+          <div class="scd-label">Avg Delivery Time</div>
+          <div class="scd-trend up"><i class="ri-arrow-up-line"></i> Improved</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:0.88rem;color:var(--gray-700);margin-bottom:16px;">Content Cards</h3>
+      <div class="card-demo-grid">
+        <div class="demo-card">
+          <div class="demo-card-img" style="background:var(--green-light);">💊</div>
+          <div class="demo-card-body">
+            <div class="demo-card-tag">Pharmacy</div>
+            <div class="demo-card-title">Prescription Refill</div>
+            <div class="demo-card-sub">Upload your prescription and get medicines delivered in under 3 hours.</div>
+          </div>
+          <div class="demo-card-footer">
+            <span style="font-size:0.75rem;color:var(--gray-500);">From TZS 1,500</span>
+            <button class="btn-primary btn-sm">Order Now</button>
+          </div>
+        </div>
+        <div class="demo-card">
+          <div class="demo-card-img" style="background:#EBF8FF;">🩺</div>
+          <div class="demo-card-body">
+            <div class="demo-card-tag">Telemedicine</div>
+            <div class="demo-card-title">Online Consultation</div>
+            <div class="demo-card-sub">Chat or video-call a licensed doctor anytime, from anywhere in Tanzania.</div>
+          </div>
+          <div class="demo-card-footer">
+            <span class="badge badge-green">Available Now</span>
+            <button class="btn-primary btn-sm">Consult</button>
+          </div>
+        </div>
+        <div class="demo-card">
+          <div class="demo-card-img" style="background:#FAF5FF;">💳</div>
+          <div class="demo-card-body">
+            <div class="demo-card-tag">Finance</div>
+            <div class="demo-card-title">Ultimate Card</div>
+            <div class="demo-card-sub">Pay-later health financing card accepted at all Apilox partner pharmacies.</div>
+          </div>
+          <div class="demo-card-footer">
+            <span style="font-size:0.75rem;color:var(--gray-500);">0% interest</span>
+            <button class="btn-primary btn-sm">Apply</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         NAVIGATION
+    ══════════════════════════ -->
+    <section id="nav-section" class="ds-section">
+      <div class="section-label"><i class="ri-navigation-line"></i> Navigation</div>
+      <h2 class="section-title">Navigation Patterns</h2>
+      <p class="section-sub">Apilox uses two navigation patterns: a top navbar for marketing pages and a left sidebar for dashboards and apps.</p>
+
+      <h3 style="font-size:0.88rem;color:var(--gray-700);margin-bottom:12px;">Top Navigation Bar</h3>
+      <div class="nav-demo" style="margin-bottom:28px;">
+        <div class="nav-demo-bar">
+          <div class="nd-logo">Apilox</div>
+          <div class="nd-links">
+            <div class="nd-link active">Home</div>
+            <div class="nd-link">Company</div>
+            <div class="nd-link">Career</div>
+            <div class="nd-link">Support</div>
+          </div>
+          <button class="nd-btn">Get Started</button>
+        </div>
+        <div style="padding:20px 24px;background:var(--off-white);font-size:0.82rem;color:var(--gray-500);">
+          Top nav has <code style="font-family:var(--font-mono);background:var(--green-soft);padding:1px 5px;border-radius:3px;">position: sticky; top: 0;</code> — always visible on scroll. Height: 64–72px. Uses backdrop-filter blur on scroll.
+        </div>
+      </div>
+
+      <h3 style="font-size:0.88rem;color:var(--gray-700);margin-bottom:12px;">Sidebar Navigation (App / Dashboard)</h3>
+      <div class="nav-demo">
+        <div class="sidebar-preview">
+          <div class="sp-rail">
+            <div class="sp-item active"><i class="ri-apps-line"></i> Dashboard</div>
+            <div class="sp-item"><i class="ri-folder-line"></i> Documents</div>
+            <div class="sp-item"><i class="ri-group-line"></i> Team</div>
+            <div class="sp-item"><i class="ri-bar-chart-2-line"></i> Analytics</div>
+            <div class="sp-item"><i class="ri-settings-3-line"></i> Settings</div>
+          </div>
+          <div class="sp-content">Active page content renders here</div>
+        </div>
+        <div style="padding:16px 24px;background:var(--off-white);font-size:0.82rem;color:var(--gray-500);border-top:1px solid var(--gray-50);">
+          Sidebar: <code style="font-family:var(--font-mono);background:var(--green-soft);padding:1px 5px;border-radius:3px;">width: 260–280px</code>. Active link: green-light background + 2px left border in var(--green). Use <code style="font-family:var(--font-mono);background:var(--green-soft);padding:1px 5px;border-radius:3px;">position: sticky; top: 64px;</code> to stay fixed.
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         SPACING & RADIUS
+    ══════════════════════════ -->
+    <section id="spacing-section" class="ds-section" style="background:var(--off-white);">
+      <div class="section-label"><i class="ri-space"></i> Spacing & Radius</div>
+      <h2 class="section-title">Spacing Scale & Border Radius</h2>
+      <p class="section-sub">Apilox uses an 8px base spacing unit. All spacing should be multiples of 4 or 8. Border radii are defined as CSS variables — always use them.</p>
+
+      <div class="two-col">
+        <div>
+          <h3 style="font-size:0.88rem;color:var(--gray-700);margin-bottom:20px;">Spacing Scale</h3>
+          <div class="spacing-demo">
+            <div class="space-block"><div class="space-vis" style="height:4px;"></div><div class="space-label">4px</div><div class="space-val">0.25rem</div></div>
+            <div class="space-block"><div class="space-vis" style="height:8px;"></div><div class="space-label">8px</div><div class="space-val">0.5rem</div></div>
+            <div class="space-block"><div class="space-vis" style="height:12px;"></div><div class="space-label">12px</div><div class="space-val">0.75rem</div></div>
+            <div class="space-block"><div class="space-vis" style="height:16px;"></div><div class="space-label">16px</div><div class="space-val">1rem</div></div>
+            <div class="space-block"><div class="space-vis" style="height:20px;"></div><div class="space-label">20px</div><div class="space-val">1.25rem</div></div>
+            <div class="space-block"><div class="space-vis" style="height:24px;"></div><div class="space-label">24px</div><div class="space-val">1.5rem</div></div>
+            <div class="space-block"><div class="space-vis" style="height:32px;"></div><div class="space-label">32px</div><div class="space-val">2rem</div></div>
+            <div class="space-block"><div class="space-vis" style="height:40px;"></div><div class="space-label">40px</div><div class="space-val">2.5rem</div></div>
+            <div class="space-block"><div class="space-vis" style="height:48px;"></div><div class="space-label">48px</div><div class="space-val">3rem</div></div>
+            <div class="space-block"><div class="space-vis" style="height:64px;"></div><div class="space-label">64px</div><div class="space-val">4rem</div></div>
+            <div class="space-block"><div class="space-vis" style="height:80px;"></div><div class="space-label">80px</div><div class="space-val">5rem</div></div>
+          </div>
+        </div>
+        <div>
+          <h3 style="font-size:0.88rem;color:var(--gray-700);margin-bottom:20px;">Border Radius Tokens</h3>
+          <div class="radius-demo">
+            <div class="radius-block"><div class="radius-vis" style="border-radius:8px;"></div><div class="radius-label">--r-sm<br>8px</div></div>
+            <div class="radius-block"><div class="radius-vis" style="border-radius:14px;"></div><div class="radius-label">--r-md<br>14px</div></div>
+            <div class="radius-block"><div class="radius-vis" style="border-radius:22px;"></div><div class="radius-label">--r-lg<br>22px</div></div>
+            <div class="radius-block"><div class="radius-vis" style="border-radius:32px;"></div><div class="radius-label">--r-xl<br>32px</div></div>
+            <div class="radius-block"><div class="radius-vis" style="border-radius:100px;"></div><div class="radius-label">--r-xxl<br>100px (pill)</div></div>
+          </div>
+          <div style="margin-top:24px;background:var(--white);border:1px solid var(--gray-100);border-radius:var(--r-md);padding:16px 20px;font-size:0.82rem;color:var(--gray-500);line-height:1.7;">
+            <strong style="color:var(--ink);display:block;margin-bottom:4px;">When to use each radius:</strong>
+            <strong style="color:var(--green-dark);">--r-sm (8px)</strong> — Icon containers, tags, tooltips<br>
+            <strong style="color:var(--green-dark);">--r-md (14px)</strong> — Inputs, dropdowns, code blocks<br>
+            <strong style="color:var(--green-dark);">--r-lg (22px)</strong> — Cards, modals, sidebars<br>
+            <strong style="color:var(--green-dark);">--r-xl (32px)</strong> — Hero panels, large containers<br>
+            <strong style="color:var(--green-dark);">--r-xxl (100px)</strong> — ALL buttons, chips, pills
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         SHADOWS
+    ══════════════════════════ -->
+    <section id="shadows-section" class="ds-section">
+      <div class="section-label"><i class="ri-contrast-drop-line"></i> Shadows</div>
+      <h2 class="section-title">Shadow Tokens</h2>
+      <p class="section-sub">Shadows communicate depth and interaction. The green shadow is Apilox's signature — use it only on hover states of primary green elements.</p>
+
+      <div class="shadow-demo">
+        <div class="shadow-item" style="box-shadow:var(--shadow-sm);">
+          <i class="ri-layers-line" style="font-size:1.4rem;color:var(--gray-300);"></i>
+          <div class="shadow-item-label">--shadow-sm</div>
+          <div style="font-size:0.68rem;color:var(--gray-300);font-family:var(--font-mono);text-align:center;padding:0 8px;">0 2px 12px rgba(0,0,0,0.05)</div>
+        </div>
+        <div class="shadow-item" style="box-shadow:var(--shadow-md);">
+          <i class="ri-layers-line" style="font-size:1.4rem;color:var(--gray-300);"></i>
+          <div class="shadow-item-label">--shadow-md</div>
+          <div style="font-size:0.68rem;color:var(--gray-300);font-family:var(--font-mono);text-align:center;padding:0 8px;">0 8px 32px rgba(0,0,0,0.08)</div>
+        </div>
+        <div class="shadow-item" style="box-shadow:var(--shadow-lg);">
+          <i class="ri-layers-line" style="font-size:1.4rem;color:var(--gray-300);"></i>
+          <div class="shadow-item-label">--shadow-lg</div>
+          <div style="font-size:0.68rem;color:var(--gray-300);font-family:var(--font-mono);text-align:center;padding:0 8px;">0 20px 60px rgba(0,0,0,0.10)</div>
+        </div>
+        <div class="shadow-item" style="box-shadow:var(--shadow-green);">
+          <i class="ri-seedling-line" style="font-size:1.4rem;color:var(--green);"></i>
+          <div class="shadow-item-label" style="color:var(--green-dark);">--shadow-green</div>
+          <div style="font-size:0.68rem;color:var(--gray-300);font-family:var(--font-mono);text-align:center;padding:0 8px;">0 8px 32px rgba(31,188,81,0.28)</div>
+        </div>
+        <div class="shadow-item" style="box-shadow:var(--shadow-green-lg);">
+          <i class="ri-seedling-fill" style="font-size:1.4rem;color:var(--green);"></i>
+          <div class="shadow-item-label" style="color:var(--green-dark);">--shadow-green-lg</div>
+          <div style="font-size:0.68rem;color:var(--gray-300);font-family:var(--font-mono);text-align:center;padding:0 8px;">0 20px 60px rgba(31,188,81,0.18)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         MOTION
+    ══════════════════════════ -->
+    <section id="motion-section" class="ds-section" style="background:var(--off-white);">
+      <div class="section-label"><i class="ri-magic-line"></i> Motion & Transitions</div>
+      <h2 class="section-title">Animation & Transition Rules</h2>
+      <p class="section-sub">Motion should feel natural and purposeful. Use ease for most transitions. Reserve spring/bounce for delight moments. Never animate layout properties — only transform and opacity.</p>
+
+      <div class="transition-table-wrap" style="margin-bottom:24px;">
+        <div class="transition-row" style="border-radius:var(--r-lg) var(--r-lg) 0 0;">
+          <div class="tr-name">transition-fast</div>
+          <div class="tr-val">all 0.15s ease</div>
+          <div class="tr-use">Hover bg/color changes, icon color</div>
+        </div>
+        <div class="transition-row">
+          <div class="tr-name">transition-base</div>
+          <div class="tr-val">all 0.25s ease</div>
+          <div class="tr-use">Buttons, cards, interactive elements</div>
+        </div>
+        <div class="transition-row">
+          <div class="tr-name">transition-slow</div>
+          <div class="tr-val">all 0.4s ease</div>
+          <div class="tr-use">Modals, drawers, page transitions</div>
+        </div>
+        <div class="transition-row">
+          <div class="tr-name">hover-lift</div>
+          <div class="tr-val">transform: translateY(-2px)</div>
+          <div class="tr-use">All interactive cards and buttons</div>
+        </div>
+        <div class="transition-row">
+          <div class="tr-name">hover-lift-lg</div>
+          <div class="tr-val">transform: translateY(-4px)</div>
+          <div class="tr-use">Hero elements, feature cards</div>
+        </div>
+        <div class="transition-row">
+          <div class="tr-name">reveal-in</div>
+          <div class="tr-val">opacity: 0→1 + translateY(20px→0)</div>
+          <div class="tr-use">Scroll-triggered section entrances</div>
+        </div>
+        <div class="transition-row">
+          <div class="tr-name">modal-in</div>
+          <div class="tr-val">opacity: 0→1 + scale(0.97→1)</div>
+          <div class="tr-use">Modal and sheet open animations</div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">CSS — Keyframes</span><button class="code-copy" onclick="copyCode(this,'motion-code')"><i class="ri-file-copy-line"></i> Copy</button></div>
+        <div class="code-body"><pre id="motion-code"><span class="c-comment">/* Standard reveal animation for scroll-triggered sections */</span>
+<span class="c-key">@keyframes</span> <span class="c-fn">revealUp</span> {
+  <span class="c-key">from</span> { <span class="c-prop">opacity</span>: <span class="c-val">0</span>; <span class="c-prop">transform</span>: <span class="c-fn">translateY</span>(24px); }
+  <span class="c-key">to</span>   { <span class="c-prop">opacity</span>: <span class="c-val">1</span>; <span class="c-prop">transform</span>: none; }
+}
+<span class="c-comment">/* Modal entrance */</span>
+<span class="c-key">@keyframes</span> <span class="c-fn">modalIn</span> {
+  <span class="c-key">from</span> { <span class="c-prop">opacity</span>: <span class="c-val">0</span>; <span class="c-prop">transform</span>: <span class="c-fn">translateY</span>(20px) <span class="c-fn">scale</span>(0.97); }
+  <span class="c-key">to</span>   { <span class="c-prop">opacity</span>: <span class="c-val">1</span>; <span class="c-prop">transform</span>: none; }
+}
+<span class="c-comment">/* Staggered children — use animation-delay */</span>
+<span class="c-key">.card:nth-child(1)</span> { <span class="c-prop">animation-delay</span>: <span class="c-val">0ms</span>; }
+<span class="c-key">.card:nth-child(2)</span> { <span class="c-prop">animation-delay</span>: <span class="c-val">80ms</span>; }
+<span class="c-key">.card:nth-child(3)</span> { <span class="c-prop">animation-delay</span>: <span class="c-val">160ms</span>; }
+<span class="c-key">.card:nth-child(4)</span> { <span class="c-prop">animation-delay</span>: <span class="c-val">240ms</span>; }
+
+<span class="c-comment">/* NEVER animate these — causes layout reflow */</span>
+<span class="c-comment">/* ✗ width, height, top, left, margin, padding */</span>
+<span class="c-comment">/* ✓ transform, opacity, filter, background-color */</span></pre></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         DO / DON'T
+    ══════════════════════════ -->
+    <section id="dodonts-section" class="ds-section">
+      <div class="section-label"><i class="ri-checkbox-circle-line"></i> Do's & Don'ts</div>
+      <h2 class="section-title">Design Rules</h2>
+      <p class="section-sub">These rules are non-negotiable for all Apilox products. Any deviation must be approved by the design lead.</p>
+
+      <div class="do-dont" style="margin-bottom:20px;">
+        <div class="dd-card do">
+          <div class="dd-head"><i class="ri-check-circle-fill"></i> DO — Colors</div>
+          <div class="dd-body">
+            <ul style="list-style:disc;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
+              <li>Use <strong>--green (#1FBC51)</strong> as the primary action color</li>
+              <li>Use CSS variables for every color value — never hardcode hex</li>
+              <li>Use green to signal success, active states, and CTAs</li>
+              <li>Use --ink (#0d1f14) for all headings and important text</li>
+              <li>Use --off-white as page background, never pure white</li>
+            </ul>
+          </div>
+        </div>
+        <div class="dd-card dont">
+          <div class="dd-head"><i class="ri-close-circle-fill"></i> DON'T — Colors</div>
+          <div class="dd-body">
+            <ul style="list-style:disc;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
+              <li>Never use purple, orange, or pink as accent colors</li>
+              <li>Never hardcode <code style="font-family:var(--font-mono);font-size:0.78rem;">#1FBC51</code> — always use var(--green)</li>
+              <li>Never use red as a primary or decorative color</li>
+              <li>Never use more than 3 colors in a single component</li>
+              <li>Never use pure black (#000000) — use --ink instead</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="do-dont" style="margin-bottom:20px;">
+        <div class="dd-card do">
+          <div class="dd-head"><i class="ri-check-circle-fill"></i> DO — Typography</div>
+          <div class="dd-body">
+            <ul style="list-style:disc;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
+              <li>Use Montserrat for ALL headings and button text</li>
+              <li>Use Poppins for all body copy and descriptions</li>
+              <li>Use DM Serif Display italic only for large hero headings</li>
+              <li>Use JetBrains Mono for code and technical labels</li>
+              <li>Maintain a clear hierarchy — one h1 per page</li>
+            </ul>
+          </div>
+        </div>
+        <div class="dd-card dont">
+          <div class="dd-head"><i class="ri-close-circle-fill"></i> DON'T — Typography</div>
+          <div class="dd-body">
+            <ul style="list-style:disc;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
+              <li>Never use Inter, Roboto, Arial, or system fonts</li>
+              <li>Never use DM Serif Display in non-italic or for body text</li>
+              <li>Never mix more than two typefaces in one section</li>
+              <li>Never go below 12px for any visible UI text</li>
+              <li>Never use all-caps for body text (labels only)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="do-dont">
+        <div class="dd-card do">
+          <div class="dd-head"><i class="ri-check-circle-fill"></i> DO — Buttons & Interactions</div>
+          <div class="dd-body">
+            <ul style="list-style:disc;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
+              <li>Always use pill shape (--r-xxl) for buttons</li>
+              <li>Always apply translateY(-2px) lift on hover</li>
+              <li>Always use --shadow-green on primary button hover</li>
+              <li>Use Remix Icons exclusively — no mixing icon sets</li>
+              <li>Always show a green focus ring (3px, 12% opacity) on inputs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="dd-card dont">
+          <div class="dd-head"><i class="ri-close-circle-fill"></i> DON'T — Buttons & Interactions</div>
+          <div class="dd-body">
+            <ul style="list-style:disc;padding-left:18px;display:flex;flex-direction:column;gap:8px;">
+              <li>Never use square or sharp-corner buttons</li>
+              <li>Never remove focus styles (accessibility requirement)</li>
+              <li>Never use Font Awesome or Material Icons</li>
+              <li>Never animate layout properties (width, height, margin)</li>
+              <li>Never use transitions longer than 400ms in UI interactions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════
+         CSS VARIABLES
+    ══════════════════════════ -->
+    <section id="code-section" class="ds-section" style="background:var(--off-white);">
+      <div class="section-label"><i class="ri-code-s-slash-line"></i> CSS Variables</div>
+      <h2 class="section-title">Master CSS Variables</h2>
+      <p class="section-sub">Copy this entire :root block into the top of your main CSS file. This is the foundation of every Apilox product. Do not modify values — extend only.</p>
+
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">CSS — :root variables</span><button class="code-copy" onclick="copyCode(this,'vars-code')"><i class="ri-file-copy-line"></i> Copy All</button></div>
+        <div class="code-body"><pre id="vars-code"><span class="c-comment">/* ══════════════════════════════════════════
+   APILOX DESIGN SYSTEM — Master CSS Variables
+   Version: 1.0.0 | apilox.co.tz
+   Copy this into :root in your main stylesheet.
+   Never hardcode values — always use var().
+══════════════════════════════════════════ */</span>
+
+<span class="c-key">:root</span> {
+
+  <span class="c-comment">/* ── BRAND GREENS ── */</span>
+  <span class="c-prop">--green</span>:          <span class="c-val">#1FBC51</span>;        <span class="c-comment">/* Primary — buttons, CTAs, active */</span>
+  <span class="c-prop">--green-dark</span>:     <span class="c-val">#17a044</span>;        <span class="c-comment">/* Hover state of --green */</span>
+  <span class="c-prop">--green-deep</span>:     <span class="c-val">#0d8a38</span>;        <span class="c-comment">/* Pressed / active state */</span>
+  <span class="c-prop">--green-light</span>:    <span class="c-val">#E9F8EF</span>;        <span class="c-comment">/* Sidebar active bg, hover bg */</span>
+  <span class="c-prop">--green-soft</span>:     <span class="c-fn">rgba</span>(31,188,81,0.08); <span class="c-comment">/* Icon bg, chip bg */</span>
+  <span class="c-prop">--green-mid</span>:      <span class="c-fn">rgba</span>(31,188,81,0.15); <span class="c-comment">/* Mid-strength tint */</span>
+  <span class="c-prop">--green-border</span>:   <span class="c-fn">rgba</span>(31,188,81,0.22); <span class="c-comment">/* Chip borders, focus outlines */</span>
+  <span class="c-prop">--green-glow</span>:     <span class="c-fn">rgba</span>(31,188,81,0.30); <span class="c-comment">/* Glow effects on dark bg */</span>
+
+  <span class="c-comment">/* ── NEUTRALS ── */</span>
+  <span class="c-prop">--white</span>:     <span class="c-val">#ffffff</span>;
+  <span class="c-prop">--off-white</span>: <span class="c-val">#f7fdf9</span>;          <span class="c-comment">/* Page backgrounds — never pure white */</span>
+  <span class="c-prop">--gray-50</span>:   <span class="c-val">#f0faf4</span>;
+  <span class="c-prop">--gray-100</span>:  <span class="c-val">#e8f5ed</span>;          <span class="c-comment">/* Card borders, dividers */</span>
+  <span class="c-prop">--gray-200</span>:  <span class="c-val">#d1e8d9</span>;          <span class="c-comment">/* Input borders (rest state) */</span>
+  <span class="c-prop">--gray-300</span>:  <span class="c-val">#aecfba</span>;          <span class="c-comment">/* Placeholders */</span>
+  <span class="c-prop">--gray-500</span>:  <span class="c-val">#5f7c69</span>;          <span class="c-comment">/* Sub-text, labels, captions */</span>
+  <span class="c-prop">--gray-700</span>:  <span class="c-val">#354a3c</span>;          <span class="c-comment">/* Body text */</span>
+  <span class="c-prop">--ink</span>:       <span class="c-val">#0d1f14</span>;          <span class="c-comment">/* Headings, dark surfaces */</span>
+  <span class="c-prop">--black</span>:     <span class="c-val">#0a1a10</span>;          <span class="c-comment">/* Dark button hover, absolute dark */</span>
+
+  <span class="c-comment">/* ── SEMANTIC ── */</span>
+  <span class="c-prop">--red</span>:    <span class="c-val">#E53E3E</span>;             <span class="c-comment">/* Error, danger, delete */</span>
+  <span class="c-prop">--amber</span>:  <span class="c-val">#D69E2E</span>;             <span class="c-comment">/* Warning, pending */</span>
+  <span class="c-prop">--blue</span>:   <span class="c-val">#3182CE</span>;             <span class="c-comment">/* Info, links */</span>
+
+  <span class="c-comment">/* ── TYPOGRAPHY ── */</span>
+  <span class="c-prop">--font-heading</span>: <span class="c-str">'Montserrat'</span>, sans-serif;
+  <span class="c-prop">--font-body</span>:    <span class="c-str">'Poppins'</span>, sans-serif;
+  <span class="c-prop">--font-serif</span>:   <span class="c-str">'DM Serif Display'</span>, Georgia, serif;
+  <span class="c-prop">--font-mono</span>:    <span class="c-str">'JetBrains Mono'</span>, monospace;
+
+  <span class="c-comment">/* ── BORDER RADIUS ── */</span>
+  <span class="c-prop">--r-sm</span>:  <span class="c-val">8px</span>;                  <span class="c-comment">/* Icons, tags, tooltips */</span>
+  <span class="c-prop">--r-md</span>:  <span class="c-val">14px</span>;                 <span class="c-comment">/* Inputs, dropdowns */</span>
+  <span class="c-prop">--r-lg</span>:  <span class="c-val">22px</span>;                 <span class="c-comment">/* Cards, modals */</span>
+  <span class="c-prop">--r-xl</span>:  <span class="c-val">32px</span>;                 <span class="c-comment">/* Large panels */</span>
+  <span class="c-prop">--r-xxl</span>: <span class="c-val">100px</span>;                <span class="c-comment">/* Buttons, chips — pill shape */</span>
+
+  <span class="c-comment">/* ── SHADOWS ── */</span>
+  <span class="c-prop">--shadow-sm</span>:       0 2px 12px  <span class="c-fn">rgba</span>(0,0,0,0.05);
+  <span class="c-prop">--shadow-md</span>:       0 8px 32px  <span class="c-fn">rgba</span>(0,0,0,0.08);
+  <span class="c-prop">--shadow-lg</span>:       0 20px 60px <span class="c-fn">rgba</span>(0,0,0,0.10);
+  <span class="c-prop">--shadow-green</span>:    0 8px 32px  <span class="c-fn">rgba</span>(31,188,81,0.28); <span class="c-comment">/* Button hover */</span>
+  <span class="c-prop">--shadow-green-lg</span>: 0 20px 60px <span class="c-fn">rgba</span>(31,188,81,0.18); <span class="c-comment">/* Hero elements */</span>
+
+  <span class="c-comment">/* ── LAYOUT ── */</span>
+  <span class="c-prop">--nav-h</span>:     <span class="c-val">64px</span>;             <span class="c-comment">/* Top nav height */</span>
+  <span class="c-prop">--sidebar-w</span>: <span class="c-val">260px</span>;            <span class="c-comment">/* Dashboard sidebar width */</span>
+}</pre></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="ds-footer">
+      <div class="df-left">
+        <h3>Built once. Applied everywhere.</h3>
+        <p>This design system is a living document. Update it when patterns evolve — and always build with the brand in mind.</p>
+        <p style="margin-top:8px;font-size:0.78rem;">Apilox Health Company Limited · Dar es Salaam, Tanzania · v1.0.0</p>
+      </div>
+      <div class="df-right">
+        <button class="btn-primary" onclick="copyAllVars()"><i class="ri-file-copy-line"></i> Copy All Variables</button>
+        <button class="btn-outline" style="border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);" onclick="showToast('Figma link coming soon','ri-figma-line')"><i class="ri-figma-line"></i> Figma File</button>
+      </div>
+    </footer>
+
+  </main>
+</div>
+</div><!-- end #page-components -->
+
+<!-- ════════════════════════════════════
+     PAGE: PRINCIPLES
+════════════════════════════════════ -->
+<div id="page-principles" class="page page-full">
+
+  <!-- HERO -->
+  <div class="pf-hero">
+    <div class="pf-hero-grid"></div>
+    <div class="pf-hero-glow"></div>
+    <div class="pf-hero-inner">
+      <div class="pf-eyebrow"><i class="ri-heart-line"></i> Design Philosophy</div>
+      <h1 class="pf-title">The principles that <em>guide</em> every pixel.</h1>
+      <p class="pf-sub">Before writing a single line of UI code, understand why. These principles exist so that every Apilox product feels like one product — even if built by different teams, at different times.</p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="pf-body">
+
+    <!-- Principle Cards -->
+    <div class="section-label" style="margin-bottom:24px;"><i class="ri-list-check"></i> The Four Principles</div>
+
+    <div class="principle-card">
+      <div class="pc-num">01</div>
+      <div class="pc-icon"><i class="ri-eye-line"></i></div>
+      <div class="pc-content">
+        <span class="pc-label">Principle One</span>
+        <h3 class="pc-title">Clarity First</h3>
+        <p class="pc-body">Every element in our UI must communicate its purpose instantly. We remove ambiguity at every layer — from button labels to empty states. If a user has to think about what something does for more than a second, it has failed its design. Clarity means predictable patterns, honest copy, and interfaces that explain themselves without tooltips or onboarding tours.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+          <span class="chip chip-green"><i class="ri-check-line"></i> Self-explaining UI</span>
+          <span class="chip chip-green"><i class="ri-check-line"></i> Honest labels</span>
+          <span class="chip chip-green"><i class="ri-check-line"></i> Zero ambiguity</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="principle-card">
+      <div class="pc-num">02</div>
+      <div class="pc-icon"><i class="ri-link-m"></i></div>
+      <div class="pc-content">
+        <span class="pc-label">Principle Two</span>
+        <h3 class="pc-title">Consistency Always</h3>
+        <p class="pc-body">A user who learns Apilox Pharmacy should feel immediately at home in Apilox Clinic or Apilox HR. The same interaction patterns, the same color meanings, the same spacing rhythms. Consistency is not uniformity — it's the invisible contract we keep with users so they can focus on their work, not on learning new software.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+          <span class="chip chip-ink">Shared token system</span>
+          <span class="chip chip-ink">One component library</span>
+          <span class="chip chip-ink">Cross-product patterns</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="principle-card">
+      <div class="pc-num">03</div>
+      <div class="pc-icon"><i class="ri-seedling-line"></i></div>
+      <div class="pc-content">
+        <span class="pc-label">Principle Three</span>
+        <h3 class="pc-title">Brand Integrity</h3>
+        <p class="pc-body">Green is not just a color in our palette — it is our identity. It signals trust, health, and progress. Every Apilox product should feel unmistakably Apilox at a glance, even without a logo. This means respecting our type scale, honoring our radius system, and never substituting brand values for personal aesthetic preferences.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+          <span class="chip chip-green">Brand-first decisions</span>
+          <span class="chip chip-green">No personal aesthetics</span>
+          <span class="chip chip-green">Apilox at a glance</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="principle-card">
+      <div class="pc-num">04</div>
+      <div class="pc-icon"><i class="ri-speed-up-line"></i></div>
+      <div class="pc-content">
+        <span class="pc-label">Principle Four</span>
+        <h3 class="pc-title">Purposeful Motion</h3>
+        <p class="pc-body">Every animation we ship must earn its place. Motion should orient users, confirm actions, and signal state — not entertain. We define specific easing curves and durations (see Transitions) and apply them uniformly. A product that animates everything feels cheap. A product that animates the right things feels alive.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+          <span class="chip chip-blue">Informative only</span>
+          <span class="chip chip-blue">Defined durations</span>
+          <span class="chip chip-blue">Never decorative</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="quote-block">
+      <p class="quote-text">"The best interface is one that disappears — that lets the user's task become the only thing they see."</p>
+      <div class="quote-author">
+        <div class="qa-dot"></div>
+        <span class="qa-name">Apilox Design Team — Internal Design Manifesto, 2024</span>
+      </div>
+    </div>
+
+    <!-- Supporting Pillars -->
+    <div class="section-label" style="margin-bottom:20px;"><i class="ri-building-line"></i> Supporting Pillars</div>
+    <div class="pillar-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="ri-heart-pulse-line"></i></div>
+        <h4 class="pillar-title">Healthcare Context</h4>
+        <p class="pillar-body">Our users are clinicians and healthcare workers under pressure. UI must reduce cognitive load, not add to it. Every decision should respect the stakes of the environment.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="ri-smartphone-line"></i></div>
+        <h4 class="pillar-title">Mobile by Default</h4>
+        <p class="pillar-body">Most Apilox users access our products on phones and tablets. Design mobile-first, then scale up. Never build desktop-first and "shrink" it for mobile.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="ri-global-line"></i></div>
+        <h4 class="pillar-title">Inclusive by Design</h4>
+        <p class="pillar-body">Accessibility is not a feature — it's a baseline. Sufficient contrast ratios, keyboard navigation, and readable type sizes are non-negotiable from day one.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="ri-time-line"></i></div>
+        <h4 class="pillar-title">Performance Matters</h4>
+        <p class="pillar-body">A beautiful interface that loads slowly fails our users. Every component choice should consider bundle size, rendering cost, and perceived performance on low-end devices.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="ri-shield-check-line"></i></div>
+        <h4 class="pillar-title">Trust Through Design</h4>
+        <p class="pillar-body">Healthcare data is sensitive. Our UI should communicate safety and professionalism. Avoid playful patterns where the domain demands seriousness and respect.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon"><i class="ri-draft-line"></i></div>
+        <h4 class="pillar-title">Living Documentation</h4>
+        <p class="pillar-body">This design system is never finished. As patterns evolve, update the system. Stale documentation is worse than no documentation — it creates inconsistency.</p>
+      </div>
+    </div>
+
+    <!-- Do / Don't -->
+    <div class="section-label" style="margin-top:56px;margin-bottom:20px;"><i class="ri-scales-3-line"></i> In Practice</div>
+    <div class="pd-two-col">
+      <div class="dd-card do">
+        <div class="dd-head"><i class="ri-check-circle-fill"></i> Do</div>
+        <div class="dd-body">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="display:flex;gap:8px;align-items:flex-start;"><i class="ri-check-line" style="color:#276749;margin-top:2px;flex-shrink:0;"></i> Use CSS variables for every color, spacing, and radius value</li>
+            <li style="display:flex;gap:8px;align-items:flex-start;"><i class="ri-check-line" style="color:#276749;margin-top:2px;flex-shrink:0;"></i> Reference this guide before building a new component</li>
+            <li style="display:flex;gap:8px;align-items:flex-start;"><i class="ri-check-line" style="color:#276749;margin-top:2px;flex-shrink:0;"></i> Test your UI at 375px wide before calling it done</li>
+            <li style="display:flex;gap:8px;align-items:flex-start;"><i class="ri-check-line" style="color:#276749;margin-top:2px;flex-shrink:0;"></i> Use the green palette to signal primary actions only</li>
+            <li style="display:flex;gap:8px;align-items:flex-start;"><i class="ri-check-line" style="color:#276749;margin-top:2px;flex-shrink:0;"></i> Update this system when you establish a new pattern</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dd-card dont">
+        <div class="dd-head"><i class="ri-close-circle-fill"></i> Don't</div>
+        <div class="dd-body">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="display:flex;gap:8px;align-items:flex-start;"><i class="ri-close-line" style="color:#C53030;margin-top:2px;flex-shrink:0;"></i> Hardcode hex values or arbitrary pixel values anywhere</li>
+            <li style="display:flex;gap:8px;align-items:flex-start;"><i class="ri-close-line" style="color:#C53030;margin-top:2px;flex-shrink:0;"></i> Use animations for purely decorative purposes</li>
+            <li style="display:flex;gap:8px;align-items:flex-start;"><i class="ri-close-line" style="color:#C53030;margin-top:2px;flex-shrink:0;"></i> Override design tokens with component-specific values</li>
+            <li style="display:flex;gap:8px;align-items:flex-start;"><i class="ri-close-line" style="color:#C53030;margin-top:2px;flex-shrink:0;"></i> Design desktop-first and scale down for mobile</li>
+            <li style="display:flex;gap:8px;align-items:flex-start;"><i class="ri-close-line" style="color:#C53030;margin-top:2px;flex-shrink:0;"></i> Ship a new pattern without documenting it here</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end pf-body -->
+
+  <!-- FOOTER -->
+  <footer class="ds-footer">
+    <div class="df-left">
+      <h3>Principles, not rules.</h3>
+      <p>These are the beliefs that guide judgment when the rulebook runs out.</p>
+      <p style="margin-top:8px;font-size:0.78rem;">Apilox Health Company Limited · Dar es Salaam, Tanzania · v1.0.0</p>
+    </div>
+    <div class="df-right">
+      <button class="btn-primary" onclick="switchPage('components')"><i class="ri-layout-3-line"></i> View Components</button>
+      <button class="btn-outline" onclick="switchPage('changelog')"><i class="ri-history-line"></i> See Changelog</button>
+    </div>
+  </footer>
+
+</div><!-- end #page-principles -->
+
+<!-- ════════════════════════════════════
+     PAGE: CHANGELOG
+════════════════════════════════════ -->
+<div id="page-changelog" class="page page-full">
+
+  <!-- HERO -->
+  <div class="pf-hero" style="background:var(--black);">
+    <div class="pf-hero-grid"></div>
+    <div class="pf-hero-glow" style="left:auto;right:-60px;top:-80px;"></div>
+    <div class="pf-hero-inner">
+      <div class="pf-eyebrow"><i class="ri-history-line"></i> Version History</div>
+      <h1 class="pf-title" style="font-style:normal;font-family:var(--font-heading);font-size:clamp(1.8rem,3.5vw,2.8rem);">Everything that changed, <em>and why.</em></h1>
+      <p class="pf-sub">A transparent record of every update to the Apilox Design System. Major releases, minor additions, and patch fixes — all documented with context so your team can make informed upgrade decisions.</p>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="cl-body">
+
+    <div class="cl-timeline">
+
+      <!-- v1.0.0 -->
+      <div class="cl-entry">
+        <div class="cl-dot major"></div>
+        <div class="cl-card highlight">
+          <div class="cl-meta">
+            <span class="cl-version">v1.0.0</span>
+            <span class="cl-badge major">Major Release</span>
+            <span class="cl-date">January 2025</span>
+          </div>
+          <h3 class="cl-title">Initial Design System Launch</h3>
+          <p class="cl-desc">The first official release of the Apilox Design System. This version establishes the complete foundation: brand tokens, typography scale, component library, and documentation. All future Apilox products should reference this system as the single source of truth.</p>
+          <ul class="cl-changes">
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Defined full brand color palette — 8 green shades + complete neutral scale</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Established 4-font typography system: Montserrat, Poppins, DM Serif, JetBrains Mono</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Introduced 5 border radius tokens (--r-sm through --r-xxl)</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Documented 5 shadow levels including green glow variants</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Released Button system: Primary, Dark, Outline, Ghost, Danger — 3 size variants</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Released Chips & Badges: 5 color variants + outline badge</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Released Form Elements: inputs, selects, toggles, checkboxes with all states</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Released Card system: content cards + stat cards</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Released Navigation patterns: top nav + sidebar preview</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Published Motion & Transitions reference table</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Added Do's & Don'ts guidelines for common UI decisions</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Published master CSS variables block (copy-ready)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- v1.0.1 -->
+      <div class="cl-entry">
+        <div class="cl-dot patch"></div>
+        <div class="cl-card">
+          <div class="cl-meta">
+            <span class="cl-version">v1.0.1</span>
+            <span class="cl-badge patch">Patch</span>
+            <span class="cl-date">February 2025</span>
+          </div>
+          <h3 class="cl-title">Documentation Fixes & Sidebar Navigation</h3>
+          <p class="cl-desc">Minor corrections to the documentation site and improvements to navigation UX.</p>
+          <ul class="cl-changes">
+            <li class="cl-change"><div class="cl-change-icon fix"><i class="ri-bug-line"></i></div> Fixed scrollTo() conflict with window.scrollTo — renamed to scrollToSection()</li>
+            <li class="cl-change"><div class="cl-change-icon fix"><i class="ri-bug-line"></i></div> Fixed scroll spy not highlighting active sidebar link correctly</li>
+            <li class="cl-change"><div class="cl-change-icon upd"><i class="ri-refresh-line"></i></div> Sidebar now uses data-target attributes for more reliable scroll tracking</li>
+            <li class="cl-change"><div class="cl-change-icon upd"><i class="ri-refresh-line"></i></div> Improved sidebar animation smoothness on all browsers</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- v1.1.0 -->
+      <div class="cl-entry">
+        <div class="cl-dot minor"></div>
+        <div class="cl-card">
+          <div class="cl-meta">
+            <span class="cl-version">v1.1.0</span>
+            <span class="cl-badge minor">Minor</span>
+            <span class="cl-date">March 2025</span>
+          </div>
+          <h3 class="cl-title">Mobile Responsiveness Overhaul</h3>
+          <p class="cl-desc">Complete rework of mobile behavior. The sidebar is now a slide-in drawer on screens ≤1024px, with a hamburger toggle in the top nav. All grid layouts reflow correctly at 600px and 375px breakpoints.</p>
+          <ul class="cl-changes">
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Added hamburger menu button with animated open/close states</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Added sidebar overlay with blur backdrop for mobile drawer</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Added mobile bottom tab bar for primary page navigation</li>
+            <li class="cl-change"><div class="cl-change-icon upd"><i class="ri-refresh-line"></i></div> Sidebar transitions from hidden to slide-in drawer on tablet/mobile</li>
+            <li class="cl-change"><div class="cl-change-icon upd"><i class="ri-refresh-line"></i></div> Top nav links hidden on mobile — navigation moved to bottom tab bar</li>
+            <li class="cl-change"><div class="cl-change-icon upd"><i class="ri-refresh-line"></i></div> All 2/3/4-column grids reflow to 1 column on small screens</li>
+            <li class="cl-change"><div class="cl-change-icon upd"><i class="ri-refresh-line"></i></div> Body scroll locks when mobile sidebar is open</li>
+            <li class="cl-change"><div class="cl-change-icon fix"><i class="ri-bug-line"></i></div> Fixed sidebar preview breaking on 375px width</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- v1.2.0 -->
+      <div class="cl-entry">
+        <div class="cl-dot minor"></div>
+        <div class="cl-card">
+          <div class="cl-meta">
+            <span class="cl-version">v1.2.0</span>
+            <span class="cl-badge minor">Minor</span>
+            <span class="cl-date">April 2025</span>
+          </div>
+          <h3 class="cl-title">Principles & Changelog Pages Added</h3>
+          <p class="cl-desc">The top nav tabs "Principles" and "Changelog" are now fully functional. Each has its own page with rich content — no more empty placeholders. Navigation is handled via a client-side page-switching system with no page reloads.</p>
+          <ul class="cl-changes">
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Built full Principles page: 4 principle cards, quote block, 6 pillar cards, Do/Don't</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Built full Changelog page: timeline layout with major/minor/patch categorization</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Implemented tab-based page switching system (no routing library needed)</li>
+            <li class="cl-change"><div class="cl-change-icon add"><i class="ri-add-line"></i></div> Added mobile bottom tab bar that syncs with active page</li>
+            <li class="cl-change"><div class="cl-change-icon upd"><i class="ri-refresh-line"></i></div> Sidebar correctly hides on non-Components pages</li>
+            <li class="cl-change"><div class="cl-change-icon upd"><i class="ri-refresh-line"></i></div> All new pages fully responsive at 375px, 600px, and 1024px breakpoints</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Upcoming -->
+      <div class="cl-entry">
+        <div class="cl-dot" style="background:var(--gray-100);box-shadow:0 0 0 2px var(--gray-50);"></div>
+        <div class="cl-upcoming">
+          <div class="cl-upcoming-title"><i class="ri-time-line"></i> Planned for v2.0.0</div>
+          <div class="cl-upcoming-item"><i class="ri-layout-grid-line"></i> Data table component with sorting, filtering, and pagination</div>
+          <div class="cl-upcoming-item"><i class="ri-notification-3-line"></i> Toast & alert system with queue management</div>
+          <div class="cl-upcoming-item"><i class="ri-moon-line"></i> Dark mode token layer — all components dark-mode ready</div>
+          <div class="cl-upcoming-item"><i class="ri-calendar-line"></i> Date picker & calendar component</div>
+          <div class="cl-upcoming-item"><i class="ri-drag-move-2-line"></i> Drag-and-drop utilities for dashboard builders</div>
+          <div class="cl-upcoming-item"><i class="ri-figma-line"></i> Official Figma component library sync with auto-publish</div>
+        </div>
+      </div>
+
+    </div><!-- end cl-timeline -->
+
+  </div><!-- end cl-body -->
+
+  <!-- FOOTER -->
+  <footer class="ds-footer">
+    <div class="df-left">
+      <h3>Always evolving.</h3>
+      <p>Every update is intentional. Every change is documented. That's the Apilox standard.</p>
+      <p style="margin-top:8px;font-size:0.78rem;">Apilox Health Company Limited · Dar es Salaam, Tanzania · v1.2.0</p>
+    </div>
+    <div class="df-right">
+      <button class="btn-primary" onclick="switchPage('components')"><i class="ri-layout-3-line"></i> View Components</button>
+      <button class="btn-outline" onclick="switchPage('principles')"><i class="ri-heart-line"></i> Our Principles</button>
+    </div>
+  </footer>
+
+</div><!-- end #page-changelog -->
+
+<!-- MOBILE TAB BAR -->
+<div class="mobile-tab-bar">
+  <div class="mobile-tab-bar-inner">
+    <button class="mob-tab active" data-page="components" onclick="switchPage('components')">
+      <i class="ri-layout-3-line"></i> Components
+    </button>
+    <button class="mob-tab" data-page="principles" onclick="switchPage('principles')">
+      <i class="ri-heart-line"></i> Principles
+    </button>
+    <button class="mob-tab" data-page="changelog" onclick="switchPage('changelog')">
+      <i class="ri-history-line"></i> Changelog
+    </button>
+  </div>
+</div>
+
+<script src="/scripts/scripts.js"></script>
+</body>
+</html>
